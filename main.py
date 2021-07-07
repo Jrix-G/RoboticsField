@@ -11,4 +11,7 @@ main.minsize(height=hauteur, width=largeur)
 canvas = Canvas(main, width=largeur, height=hauteur, background='white')
 canvas.pack(fill="both", expand=True)
 
+
+rect = canvas.create_rectangle()
+
 main.mainloop()
