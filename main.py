@@ -36,7 +36,7 @@ mange = canvas.create_rectangle(xran, yran, xran+width, yran+height, fill='red')
 tb = []
 def Run():
     global left2, up2, down2, right2, x, alala, y, addcanvas, mange, name, tb, tb2, name12, xran, yran, longueurserp, tab, impaire, right
-    window.after(50, Run)
+    window.after(100, Run)
 
     tab = []
     tb += [[x, y]]
@@ -147,11 +147,20 @@ def Run():
     def addcanvas():
         global longueurserp
         longueurserp += 1
-
-    if x >= 650: 
-        down()
-    if x <= 10: 
-
+""" Automatic finder
+    if xran > x:
+        if xran == x: 
+            if yran > y: 
+                down()
+            else:
+                up()
+    else:
+        if xran == x: 
+            if yran > y: 
+                down()
+            else:
+                up()
+"""
 window.after(1, Run)
 run = True
 window.mainloop()
