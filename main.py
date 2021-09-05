@@ -35,7 +35,7 @@ mange = canvas.create_rectangle(xran, yran, xran+width, yran+height, fill='red')
 
 tb = []
 def Run():
-    global left2, up2, down2, right2, x, alala, y, addcanvas, mange, name, tb, tb2, name12, xran, yran, longueurserp, tab, impaire
+    global left2, up2, down2, right2, x, alala, y, addcanvas, mange, name, tb, tb2, name12, xran, yran, longueurserp, tab, impaire, right
     window.after(50, Run)
 
     tab = []
@@ -51,7 +51,7 @@ def Run():
         up2 = False
         down2 = False
         right2 = True
-    
+
     impaire = 0
     longueurtableau = len(tb)-1
     for i in range(longueurserp):
@@ -115,28 +115,29 @@ def Run():
             mange = canvas.create_rectangle(xran, yran, xran+width, yran+height, fill='red')
         canvas.pack()
 
-    def right(event):
+    def right():
         global left2, up2, down2, right2
         left2 = False
         up2 = False
         down2 = False
         right2 = True
+        print("right")
         
-    def left(event):
+    def left():
         global left2, up2, down2, right2
         right2 = False
         up2 = False
         down2 = False
         left2 = True
 
-    def up(event):
+    def up():
         global left2, up2, down2, right2
         right2 = False
         left2 = False
         down2 = False
         up2 = True
 
-    def down(event):
+    def down():
         global left2, up2, down2, right2
         right2 = False
         left2 = False
@@ -147,12 +148,10 @@ def Run():
         global longueurserp
         longueurserp += 1
 
-    window.bind("<Right>", right)
-    window.bind("<Left>", left)
-    window.bind("<Up>", up)
-    window.bind("<Down>", down)
+    if x >= 650: 
+        down()
+    if x <= 10: 
 
-    canvas.create_text([500, 10], anchor=CENTER, text=longueurserp)
 window.after(1, Run)
 run = True
 window.mainloop()
