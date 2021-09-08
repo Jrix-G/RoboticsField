@@ -33,17 +33,63 @@ while yran%10 != 0:
     yran = randint(10, 600)
 mange = canvas.create_rectangle(xran, yran, xran+width, yran+height, fill='red')
 
+simulation = 1 
+tabSimulation = []
+actualisation = 0
+vActualisation = 5
+
 tb = []
 def Run():
-    global left2, up2, down2, right2, x, alala, y, addcanvas, mange, name, tb, tb2, name12, xran, yran, longueurserp, tab, impaire, right
-    window.after(100, Run)
+    global left2, up2, down2, right2, x, actualisation, alala, y, addcanvas, mange, name, tb, tb2, name12, xran, yran, longueurserp, tab, impaire, right, simulation, tabSimulation, down, left, up
+    window.after(vActualisation, Run)
+    actualisation+=1
 
     tab = []
     tb += [[x, y]]
     tb2 = tb
     tb2.reverse()
+    
+    if actualisation > 20:
+        topRandint = randint(1, 3)
+        if actualisation%40 == 0:
+            if topRandint == 1:
+                up()
+            elif topRandint == 3:
+                left()
+            else:
+                down()
+
+        if x+20 >= 700: 
+            if topRandint == 1:
+                up()
+            elif topRandint == 3:
+                left()
+            else:
+                down()
+        if x-20 <= 0:
+            if topRandint == 1:
+                up()
+            elif topRandint == 3:
+                right()
+            else:
+                down()
+        if y+20 >= 700: 
+            if topRandint == 1:
+                up()
+            elif topRandint == 3:
+                right()
+            else:
+                left()
+        if y-20 <= 0: 
+            if topRandint == 1:
+                down()
+            elif topRandint == 3:
+                right()
+            else:
+                left()
 
     if x > 690 or x < 0 or y > 690 or y < 0: 
+        simulation += 1
         x = 20
         y = 20
         longueurserp = 1
@@ -147,6 +193,10 @@ def Run():
     def addcanvas():
         global longueurserp
         longueurserp += 1
+
+
+    canvas.create_text([500, 10], anchor=CENTER, text=simulation)
+
 """ Automatic finder
     if xran > x:
         if xran == x: 
