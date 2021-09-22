@@ -37,13 +37,20 @@ class homme():
 
     def getname(self):
         return self.name
-    
-homme = homme(10, 10, 10, 10)
 
+homme2 = homme(10, 10, 10, 10) 
+homme = homme(10, 10, 10, 10)
+ 
+i = 0
 def Run():
+    global i 
     window.after(100, Run)
     homme.move_right()
-    
+    if i >= 20:
+        homme2.move_right()
+    else:
+        homme2.move_down()
+    i+= 1
 window.after(1, Run)
 run = True
 window.mainloop()
