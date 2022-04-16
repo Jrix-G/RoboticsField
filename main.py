@@ -1,4 +1,8 @@
-#EasySnake made by Jason Mourier
+#EasySnake made by Jason
+
+#
+# ---- En cours de développement ----
+#
 
 from tkinter import *
 from random import *
@@ -44,7 +48,7 @@ homme = homme(10, 10, 10, 10)
 i = 0
 def Run():
     global i 
-    window.after(100, Run)
+    window.after(50, Run)
     homme.move_right()
     if i >= 20:
         homme2.move_right()
