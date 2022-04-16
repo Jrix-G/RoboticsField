@@ -15,6 +15,7 @@ window.maxsize(700, 700)
 
 canvas = Canvas(window, width=700, height=700)
 canvas.pack()
+
 class homme():
     def __init__(self, x, y, width, height):
         self.name = canvas.create_rectangle(x, y, width+x, height+y, fill="red")
