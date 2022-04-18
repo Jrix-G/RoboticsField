@@ -57,7 +57,6 @@ def Run():
     else:
         homme2.move_down()
     i+= 1
-    
 window.after(1, Run)
 run = True
 window.mainloop()
