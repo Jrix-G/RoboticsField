@@ -1,5 +1,3 @@
-#EasySnake made by Jason
-
 #
 # ---- En cours de développement ----
 #
@@ -7,9 +5,10 @@
 from tkinter import *
 from random import *
 from time import *
+from turtle import home
 
 window = Tk()
-window.title("EasySnake")
+window.title("Robot")
 window.minsize(700, 700)
 window.maxsize(700, 700)
 
@@ -18,23 +17,27 @@ canvas.pack()
 
 class homme():
     def __init__(self, x, y, width, height):
-        self.name = canvas.create_rectangle(x, y, width+x, height+y, fill="red")
+        self.name = "Jason"
         self.largeur = width
         self.hauteur = height
         self.x = x
         self.y = y
+
     def move_right(self):
         canvas.delete(self.name)
         self.name = canvas.create_rectangle(self.x, self.y, self.largeur+self.x, self.hauteur+self.y, fill="red")
         self.x = self.x+10
+
     def move_left(self):
         canvas.delete(self.name)
         self.name = canvas.create_rectangle(self.x, self.y, self.largeur+self.x, self.hauteur+self.y, fill="red")
         self.x = self.x-10
+
     def move_up(self):
         canvas.delete(self.name)
         self.name = canvas.create_rectangle(self.x, self.y, self.largeur+self.x, self.hauteur+self.y, fill="red")
         self.y = self.y-10
+
     def move_down(self):
         canvas.delete(self.name)
         self.name = canvas.create_rectangle(self.x, self.y, self.largeur+self.x, self.hauteur+self.y, fill="red")
@@ -54,9 +57,11 @@ def Run():
     homme.move_right()
     if i >= 20:
         homme2.move_right()
+        print(homme2.getname())
     else:
         homme2.move_down()
     i+= 1
+
 window.after(1, Run)
 run = True
 window.mainloop()
