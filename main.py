@@ -25,7 +25,7 @@ class homme():
 
     def move_right(self):
         canvas.delete(self.name)
-        self.name = canvas.create_rectangle(self.x, self.y, self.largeur+self.x, self.hauteur+self.y, fill="red")
+        canvas.create_rectangle(self.x, self.y, self.largeur+self.x, self.hauteur+self.y, fill="red")
         self.x = self.x+10
 
     def move_left(self):
@@ -61,6 +61,7 @@ def Run():
     else:
         homme2.move_down()
     i+= 1
+
 
 window.after(1, Run)
 run = True
